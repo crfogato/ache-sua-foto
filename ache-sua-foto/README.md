@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+📸 Ache Sua Foto
+O Ache Sua Foto é uma solução inteligente para fotógrafos de eventos que desejam automatizar a entrega de fotos. Através de um sistema de códigos únicos, os clientes podem localizar e baixar suas fotos de forma rápida, segura e organizada.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Funcionalidades
+Busca por Código: O cliente insere um código exclusivo e acessa sua galeria privada.
 
-Currently, two official plugins are available:
+Validação de Uso Único: Sistema de segurança que registra quando um código foi utilizado, evitando compartilhamentos indevidos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Otimização de Imagens: Interface rápida e responsiva para visualização de fotos.
 
-## React Compiler
+Integração com Firebase: Autenticação e banco de dados em tempo real para máxima performance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠️ Tecnologias Utilizadas
+React.js + Vite
 
-## Expanding the ESLint configuration
+Firebase (Auth, Realtime Database & Storage)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Tailwind CSS (ou a biblioteca de estilos que você usou)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Lucide React (Ícones)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+📦 Como rodar o projeto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clonar o repositório
+   Bash
+   git clone https://github.com/seu-usuario/ache-sua-foto.git
+   cd ache-sua-foto
+2. Instalar as dependências
+   Bash
+   npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# ou
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+yarn install 3. Configurar as Variáveis de Ambiente
+Crie um arquivo .env na raiz do projeto e preencha com suas credenciais do Firebase (use o arquivo .env.example como base):
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Snippet de código
+VITE_FIREBASE_API_KEY=seu_valor
+VITE_FIREBASE_AUTH_DOMAIN=seu_valor
+VITE_FIREBASE_PROJECT_ID=seu_valor
+VITE_FIREBASE_STORAGE_BUCKET=seu_valor
+VITE_FIREBASE_MESSAGING_SENDER_ID=seu_valor
+VITE_FIREBASE_APP_ID=seu_valor
+VITE_FIREBASE_DATABASE_URL=seu_valor 4. Iniciar o servidor de desenvolvimento
+Bash
+npm run dev
+🔒 Regras de Segurança (Firebase)
+O projeto utiliza regras rígidas no Firebase Realtime Database para garantir que:
+
+Usuários só leiam códigos específicos se souberem o caminho exato.
+
+Códigos não possam ser sobrescritos após o primeiro uso (.validate: "!data.exists()").
+
+👤 Autor - crfogato
+Seu LinkedIn - https://www.linkedin.com/in/crfogato
+Seu Portfólio - https://github.com/crfogato/ache-sua-foto
